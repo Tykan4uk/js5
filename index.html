@@ -12,10 +12,134 @@
     content="width=device-width, initial-scale=1.0"
   >
   <title>JS5</title>
+
+  <link
+    media="all"
+    rel="stylesheet"
+    href="./styles.css"
+  >
 </head>
 
 <body>
+  <div class="tabs">
+    <input
+      type="radio"
+      name="tab-btn"
+      id="tab-btn-1"
+      value=""
+      checked
+    >
+    <label for="tab-btn-1">Get days in year</label>
+    <input
+      type="radio"
+      name="tab-btn"
+      id="tab-btn-2"
+      value=""
+    >
+    <label for="tab-btn-2">Get day of a year</label>
+    <input
+      type="radio"
+      name="tab-btn"
+      id="tab-btn-3"
+      value=""
+    >
+    <label for="tab-btn-3">Get fiscal quarters</label>
+    <input
+      type="radio"
+      name="tab-btn"
+      id="tab-btn-4"
+      value=""
+    >
+    <label for="tab-btn-4">Write a function to calculate date diff</label>
+    <input
+      type="radio"
+      name="tab-btn"
+      id="tab-btn-5"
+      value=""
+    >
+    <label for="tab-btn-5">Create a map</label>
+    <input
+      type="radio"
+      name="tab-btn"
+      id="tab-btn-6"
+      value=""
+    >
+    <label for="tab-btn-6">Create a cache</label>
 
+    <div id="content-1">
+      <input
+        type="number"
+        value="2021"
+        min="1"
+        id="days-in-year-input"
+        onchange="getDaysInYear(getValueById('days-in-year-input'))"
+      >
+      <label>Days in year: <label id="days-in-year-output">365</label></label>
+    </div>
+    <div id="content-2">
+      <input
+        type="date"
+        value="2023-01-12"
+        id="day-of-year-input"
+        onchange="getDayNumber(getValueById('day-of-year-input'))"
+      >
+      <label>Day of year: <label id="day-of-year-output">12</label></label>
+    </div>
+    <div id="content-3">
+      <input
+        type="date"
+        value="2023-02-26"
+        id="quarter-input"
+        onchange="getQuarters(getValueById('quarter-input'))"
+      >
+      <label id="quarter-output">Feb 26 is I quarter</label>
+    </div>
+    <div id="content-4">
+      <input
+        type="datetime"
+        value="2023-02-26 14:00"
+        id="datediff-1-input"
+        onchange="calcDateDiff(getValueById('datediff-1-input'), getValueById('datediff-2-input'))"
+      >
+      <input
+        type="datetime"
+        value="2023-02-26 14:20"
+        id="datediff-2-input"
+        onchange="calcDateDiff(getValueById('datediff-1-input'), getValueById('datediff-2-input'))"
+      >
+      <label id="datediff-output">20 minutes</label>
+    </div>
+    <div id="content-5">
+      <textarea
+        id="map-input"
+        cols="30"
+        rows="10"
+        onchange="createMap(getValueById('map-input'))"
+      >[
+      { id: 1, value: 1, date: "2022-02-15" },
+      { id: 2, value: 1242, date: "2023-02-15" },
+      { id: 3, value: 3342, date: "2021-02-15" }
+    ]</textarea>
+      <label>Result in console</label>
+    </div>
+    <div id="content-6">
+      <input
+        type="datetime"
+        value="2023-02-26 14:00"
+        id="datediff-cache-1-input"
+      >
+      <input
+        type="datetime"
+        value="2023-02-26 14:20"
+        id="datediff-cache-2-input"
+      >
+      <button
+        onclick="cacheCalcDateDiff(getValueById('datediff-cache-1-input'), getValueById('datediff-cache-2-input'))"
+      >Set result in cache</button>
+      <button onclick="getCacheCalcDateDiff()">Check cache in console</button>
+    </div>
+  </div>
+  <script src="./index.js"></script>
 </body>
 
 </html>
