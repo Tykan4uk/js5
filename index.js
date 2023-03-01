@@ -59,7 +59,12 @@ function createMap(jsonString) {
 const dateDiffCache = new Map();
 
 function cacheCalcDateDiff(stringDateFirst, stringDateSecond) {
-  dateDiffCache.set(`${stringDateFirst}, ${stringDateSecond}`, calcDateDiff(stringDateFirst, stringDateSecond));
+  const key = `${stringDateFirst}, ${stringDateSecond}`;
+
+  if (!dateDiffCache.has(key))
+    dateDiffCache.set(key, calcDateDiff(stringDateFirst, stringDateSecond));
+
+  return dateDiffCache.get(key);
 }
 
 function getCacheCalcDateDiff() {
